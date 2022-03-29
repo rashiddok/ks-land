@@ -4,6 +4,7 @@ import { HeaderComponent } from './header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {LayoutModule} from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SocialsModule } from 'src/app/components/socials/socials.module';
 
 
 
@@ -13,7 +14,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     FontAwesomeModule,
     FlexLayoutModule,
-    LayoutModule
+    LayoutModule,
+    SocialsModule
   ],
   exports: [HeaderComponent]
 })

@@ -12,16 +12,9 @@
         </div>
     </div>
     <div class="header__socials">
-        <a href="#">
-            <fa-icon [icon]="faInstagram" size="lg"></fa-icon>
-        </a>
-        <a href="#">
-            <fa-icon [icon]="faBehance" size="lg"></fa-icon>
-        </a>
-        <a href="#">
-            <fa-icon [icon]="faLinkedin" size="lg"></fa-icon>
-        </a>
+        <app-socials [iconSize]="'lg'" [iconSpacing]="'medium'"></app-socials>
     </div>
+
 </div>
 
 <ng-template #mobileHeader>
@@ -53,17 +46,7 @@
             </nav>
         </div>
         <div class="overlay__footer">
-            <div class="header__socials">
-                <a href="#">
-                    <fa-icon [icon]="faInstagram" size="2x"></fa-icon>
-                </a>
-                <a href="#">
-                    <fa-icon [icon]="faBehance" size="2x"></fa-icon>
-                </a>
-                <a href="#">
-                    <fa-icon [icon]="faLinkedin" size="2x"></fa-icon>
-                </a>
-            </div>
+            <app-socials [iconSize]="'2x'" [iconSpacing]="'large'"></app-socials>
         </div>
     </div>
 </ng-template>

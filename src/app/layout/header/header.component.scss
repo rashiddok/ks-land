@@ -47,27 +47,6 @@
             }
         }
     }
-    &__socials {
-        margin: 0;
-        padding: 0;
-        display: inline-flex;
-        justify-content: flex-end;
-        a {
-            color: var(--foreground-light);
-            transition: color .3s;
-            margin-right: 5vw;
-            margin-left: 5vw;
-            &:first-child {
-                margin-left: 0;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
-            &:hover {
-                color: var(--foreground-secondary);
-            }
-        }
-    }
     &__toggler {
         margin-left: auto;
         .menu {}
@@ -137,10 +116,8 @@
         &__socials {
             width: 33%;
             flex: 1 1 33%;
-            a {
-                margin-right: 1vw;
-                margin-left: 1vw;
-            }
+            display: flex;
+            justify-content: flex-end;
         }
     }
 }
