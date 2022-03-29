@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {LayoutModule} from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -9,7 +11,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FlexLayoutModule,
+    LayoutModule
   ],
   exports: [HeaderComponent]
 })

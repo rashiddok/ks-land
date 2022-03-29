@@ -1,5 +1,9 @@
 .container {
-    padding-left: var(--container-indent);
-    padding-right: var(--container-indent);
+    padding-left: var(--container-desktop-indent);
+    padding-right: var(--container-desktop-indent);
     margin: 0 auto;
+    &.mobile {
+        padding-left: var(--container-mobile-indent);
+        padding-right: var(--container-mobile-indent);
+    }
 }

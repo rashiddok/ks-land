@@ -1,4 +1,4 @@
-<div class="header container">
+<div class="header container" *ngIf="isDesktop else mobileHeader">
     <nav>
         <ul class="header__nav">
             <li class="nav__link active"><a href="#">Главная</a></li>
@@ -23,3 +23,47 @@
         </a>
     </div>
 </div>
+
+<ng-template #mobileHeader>
+    <div class="header mobile container">
+        <div class="header__logo">
+            <div class="logo-text">
+                <a href="#">Aks Design</a>
+            </div>
+        </div>
+        <div class="header__toggler" (click)="toggleMenu()">
+            <div class="menu menu-close" *ngIf="isMenuToggled else menuClose">
+                <fa-icon [icon]="faXmark" size="2x"></fa-icon>
+            </div>
+            <ng-template #menuClose>
+                <div class="menu menu-open">
+                    <fa-icon [icon]="faBars" size="2x"></fa-icon>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="header__overlay" *ngIf="isMenuToggled">
+        <div class="overlay__content">
+            <nav>
+                <ul class="header__nav">
+                    <li class="nav__link active"><a href="#">Главная</a></li>
+                    <li class="nav__link"><a href="#">Обо мне</a></li>
+                    <li class="nav__link"><a href="#">Связь</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="overlay__footer">
+            <div class="header__socials">
+                <a href="#">
+                    <fa-icon [icon]="faInstagram" size="2x"></fa-icon>
+                </a>
+                <a href="#">
+                    <fa-icon [icon]="faBehance" size="2x"></fa-icon>
+                </a>
+                <a href="#">
+                    <fa-icon [icon]="faLinkedin" size="2x"></fa-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-template>
