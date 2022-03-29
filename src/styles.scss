@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import './assets/styles/utils';
 :root {
     --foreground-default: #000000;
     --foreground-secondary: #4d4d4d;
@@ -13,6 +14,7 @@
     --screen-lg: 992px;
     --screen-xl: 1200px;
     --screen-xxl: 1400px;
+    --container-indent: 8vw;
 }
 
 body {
