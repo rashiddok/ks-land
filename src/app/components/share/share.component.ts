@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 
 @Component({
   selector: 'app-share',
@@ -8,6 +9,7 @@ import { faShareNodes } from '@fortawesome/free-solid-svg-icons';
 })
 export class ShareComponent implements OnInit {
   faShare = faShareNodes
+  @ViewChild('shareDialog') shareDialog!: ShareDialogComponent;
   constructor() { }
 
   ngOnInit(): void {
@@ -21,14 +23,13 @@ export class ShareComponent implements OnInit {
       text,
       url
     }
-    // if(navigator?.canShare(shareData)){
-    //   navigator.share(shareData)
-    //   .catch((error) => console.log('Share Error: ', error));
-    // } else{
-      // window.open(`https://t.me/share/url?url=${url}&text=${text}`)
-      // window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`)
-      // window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
-    // }
+    if(!navigator.canShare){
+      this.shareDialog.showDialog()
+    } else{
+      navigator.share(shareData)
+      .catch((error) => console.log('Share Error: ', error));
+    }
+    
 
   }
 
