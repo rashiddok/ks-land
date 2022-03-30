@@ -1,18 +1,22 @@
-<div class="share-dialog" *ngIf="isOpen">
-    <header>
-        <h3 class="dialog-title">Поделиться в соц. сетях</h3>
-        <button class="close-button" (click)="closeDialog()">
+<div class="share-dialog__wrapper" *ngIf="isOpen">
+
+
+    <div class="share-dialog">
+        <header>
+            <h3 class="dialog-title">Поделиться в соц. сетях</h3>
+            <button class="close-button" (click)="closeDialog()">
             <fa-icon [icon]="faXmark" size="lg"></fa-icon>
         </button>
-    </header>
-    <div class="share__list">
-        <a class="share__link" *ngFor="let shareItem of shareItems" (click)="shareItemClick(shareItem)">
-            <fa-icon [icon]="shareItem.faIcon" size="lg" class="icon" [ngClass]="shareItem.faIconClass"></fa-icon>
-            <span>{{shareItem.name}}</span>
-        </a>
-    </div>
-    <div class="link-share" (click)="copyLinkClick()">
-        <div class="link-url">{{pageUrl}}</div>
-        <button class="copy-link">Скопировать</button>
+        </header>
+        <div class="share__list">
+            <a class="share__link" *ngFor="let shareItem of shareItems" (click)="shareItemClick(shareItem)">
+                <fa-icon [icon]="shareItem.faIcon" size="lg" class="icon" [ngClass]="shareItem.faIconClass"></fa-icon>
+                <span>{{shareItem.name}}</span>
+            </a>
+        </div>
+        <div class="link-share" (click)="copyLinkClick()">
+            <div class="link-url">{{pageUrl}}</div>
+            <button class="copy-link">Скопировать</button>
+        </div>
     </div>
 </div>

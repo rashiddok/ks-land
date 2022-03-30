@@ -1,0 +1,31 @@
+@import 'breakpoints';
+.gallery {
+    padding-left: var(--container-mobile-indent);
+    padding-right: var(--container-mobile-indent);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 70vh;
+    grid-column-gap: 2vw;
+    grid-row-gap: 2vh;
+}
+
+@media screen and (min-width: $screen-md) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 30vw;
+        padding-left: var(--container-desktop-indent);
+        padding-right: var(--container-desktop-indent);
+    }
+}
+
+@media screen and (min-width: $screen-xl) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: $screen-xxl) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
