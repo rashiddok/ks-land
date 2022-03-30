@@ -10,6 +10,8 @@
     --background-secondary: #eee;
     --background-tertiary: #c1c1c1;
     --background-fortiary: #777;
+    --box-shadow-dark: rgba(0, 0, 0, .5);
+    --box-shadow-light: rgba(0, 0, 0, .15);
     --screen-s: 576px;
     --screen-md: 768px;
     --screen-lg: 992px;
@@ -21,6 +23,11 @@
 
 body {
     background: var(--background-default);
+}
+
+* {
+    // transition: color .2s;
+    // transition: background .2s;
 }
 
 html,

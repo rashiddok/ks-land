@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {LayoutModule} from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SocialsModule } from 'src/app/components/socials/socials.module';
+import { ThemeSwitcherModule } from 'src/app/components/theme-switcher/theme-switcher.module';
 
 
 
@@ -15,6 +16,7 @@ import { SocialsModule } from 'src/app/components/socials/socials.module';
     FontAwesomeModule,
     FlexLayoutModule,
     LayoutModule,
+    ThemeSwitcherModule,
     SocialsModule
   ],
   exports: [HeaderComponent]

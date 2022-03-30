@@ -7,3 +7,19 @@
         padding-right: var(--container-mobile-indent);
     }
 }
+
+.color-default {
+    color: var(--foreground-default)
+}
+
+.color-secondary {
+    color: var(--foreground-secondary)
+}
+
+.color-tertiary {
+    color: var(--foreground-tertiary)
+}
+
+.color-light {
+    color: var(--foreground-light)
+}

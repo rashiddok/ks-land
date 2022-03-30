@@ -28,7 +28,7 @@
                 transition: color .3s;
             }
             &.active {
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid var(--foreground-default);
                 a {
                     color: var(--foreground-default);
                 }
@@ -62,7 +62,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: #fff;
+    background: var(--background-default);
     .overlay__content {
         position: absolute;
         top: 50%;
