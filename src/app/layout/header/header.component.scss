@@ -48,10 +48,21 @@
         }
     }
     &__toggler {
-        margin-left: auto;
         .menu {}
         .menu-open {}
         .menu-close {}
+    }
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    >* {
+        margin-right: 4vw;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
 

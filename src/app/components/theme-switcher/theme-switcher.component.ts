@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from 'src/app/services/theme.service';
 
@@ -8,6 +9,7 @@ import { ThemeService } from 'src/app/services/theme.service';
   styleUrls: ['./theme-switcher.component.scss']
 })
 export class ThemeSwitcherComponent implements OnInit {
+  @Input() iconSize: SizeProp = 'lg'
   faTheme = faMoon
   activeTheme = 'light'
   constructor(
