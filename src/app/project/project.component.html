@@ -1,0 +1,22 @@
+<div class="project container">
+    <div class="project__header pagewidth_max">
+        <img class="project__cover w-47" [src]="project.cover" alt="Project Cover">
+        <div class="content-column content-column_center w-47">
+            <h1 class="project__name">
+                {{project.title}}
+            </h1>
+            <h3 class="project__category category_indent">
+                {{project.category}}
+            </h3>
+        </div>
+    </div>
+    <div class="project__description pagewidth_max">
+        <h3 class="description__header" i18n="Project description|Description header @@project.header">
+            О проекте
+        </h3>
+        <p class="description__text" [innerHTML]="project.description"></p>
+    </div>
+    <div class="project__images">
+        <img class="project-image" *ngFor="let projectImage of project.files" [src]="projectImage" alt="">
+    </div>
+</div>

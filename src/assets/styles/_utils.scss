@@ -1,10 +1,18 @@
+@import 'breakpoints';
 .container {
-    padding-left: var(--container-desktop-indent);
-    padding-right: var(--container-desktop-indent);
+    padding-left: var(--container-mobile-indent);
+    padding-right: var(--container-mobile-indent);
     margin: 0 auto;
-    &.mobile {
-        padding-left: var(--container-mobile-indent);
-        padding-right: var(--container-mobile-indent);
+}
+
+@media screen and (min-width: $screen-md) {
+    .container {
+        padding-left: var(--container-desktop-indent);
+        padding-right: var(--container-desktop-indent);
+    }
+    .pagewidth_max {
+        max-width: 1200px;
+        margin: 0 auto;
     }
 }
 

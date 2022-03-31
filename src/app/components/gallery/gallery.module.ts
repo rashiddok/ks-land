@@ -8,10 +8,9 @@ import { ProjectsService } from 'src/app/services/api/projects.service';
 import { ProjectsMockService } from 'src/app/services/api/projects-mock.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
-const useApi: boolean = false
-
-const abstractProjectFactory = (http: HttpClient) => useApi ? new ProjectsService(http) : new ProjectsMockService()
+const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? new ProjectsService(http) : new ProjectsMockService()
 
 @NgModule({
   declarations: [
