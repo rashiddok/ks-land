@@ -62,6 +62,11 @@
                             }],
                             "outputHashing": "all"
                         },
+                        "en": {
+                            "localize": ["en"],
+                            "outputPath": "dist/ks-land-en/",
+                            "i18nMissingTranslation": "error"
+                        },
                         "development": {
                             "buildOptimizer": false,
                             "optimization": false,
@@ -81,6 +86,9 @@
                         },
                         "development": {
                             "browserTarget": "ks-land:build:development"
+                        },
+                        "en": {
+                            "browserTarget": "ks-land:build:en"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -139,6 +147,15 @@
                         "production": {
                             "devServerTarget": "ks-land:serve:production"
                         }
+                    }
+                }
+            },
+            "i18n": {
+                "sourceLocale": "en-US",
+                "locales": {
+                    "en": {
+                        "translation": "src/locale/messages.en.xlf",
+                        "baseHref": "en"
                     }
                 }
             }

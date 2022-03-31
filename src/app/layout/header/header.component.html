@@ -1,9 +1,9 @@
 <div class="header container" *ngIf="isDesktop else mobileHeader">
     <nav>
         <ul class="header__nav">
-            <li class="nav__link active"><a href="#">Главная</a></li>
-            <li class="nav__link"><a href="#">Обо мне</a></li>
-            <li class="nav__link"><a href="#">Связь</a></li>
+            <li class="nav__link active"><a href="#" i18n="Header link|Home link@@header.home">Главная</a></li>
+            <li class="nav__link"><a href="#" i18n="Header link|About link@@header.about">Обо мне</a></li>
+            <li class="nav__link"><a href="#" i18n="Header link|Contact link@@header.contact">Связь</a></li>
         </ul>
     </nav>
     <div class="header__logo">
@@ -11,8 +11,8 @@
             <a href="#">Aks Design</a>
         </div>
     </div>
-    <div class="header__socials">
-        <!-- <app-socials [iconSize]="'lg'" [iconSpacing]="'medium'"></app-socials> -->
+    <div class="header__additional">
+        <a href="#" class="nav__link nav__link-standalone">eng</a>
         <app-theme-switcher></app-theme-switcher>
     </div>
 
@@ -26,6 +26,7 @@
             </div>
         </div>
         <div class="header__right">
+            <a href="#" class="nav__link nav__link-standalone">eng</a>
             <app-theme-switcher [iconSize]="'2x'"></app-theme-switcher>
             <div class="header__toggler" (click)="toggleMenu()">
                 <div class="menu menu-close" *ngIf="isMenuToggled else menuClose">
@@ -43,9 +44,9 @@
         <div class="overlay__content">
             <nav>
                 <ul class="header__nav">
-                    <li class="nav__link active"><a href="#">Главная</a></li>
-                    <li class="nav__link"><a href="#">Обо мне</a></li>
-                    <li class="nav__link"><a href="#">Связь</a></li>
+                    <li class="nav__link active"><a href="#" i18n="Header link|Home link@@header.home">Главная</a></li>
+                    <li class="nav__link"><a href="#" i18n="Header link|About link@@header.about">Обо мне</a></li>
+                    <li class="nav__link"><a href="#" i18n="Header link|Contact link@@header.contact">Связь</a></li>
                 </ul>
             </nav>
         </div>
