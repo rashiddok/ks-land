@@ -6,6 +6,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SocialsModule } from 'src/app/components/socials/socials.module';
 import { ThemeSwitcherModule } from 'src/app/components/theme-switcher/theme-switcher.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,6 +17,7 @@ import { ThemeSwitcherModule } from 'src/app/components/theme-switcher/theme-swi
     FontAwesomeModule,
     FlexLayoutModule,
     LayoutModule,
+    RouterModule,
     ThemeSwitcherModule,
     SocialsModule
   ],
