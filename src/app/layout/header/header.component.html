@@ -19,7 +19,7 @@
 </div>
 
 <ng-template #mobileHeader>
-    <div class="header mobile container">
+    <div class="header mobile container" [ngClass]="{'fixed': isMenuToggled}">
         <div class="header__logo">
             <div class="logo-text">
                 <a href="#">Aks Design</a>

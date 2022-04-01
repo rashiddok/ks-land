@@ -8,6 +8,12 @@ import { environment } from 'src/environments/environment';
 import { ProjectsService } from '../services/api/projects.service';
 import { ProjectsMockService } from '../services/api/projects-mock.service';
 import { AbstractProjectService } from '../services/api/projects.abstract-service';
+import { GalleryModule } from '../components/gallery/gallery.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProjectsStorageService } from '../services/storage/projects-storage.service';
+import { ProjectNavigationModule } from './project-navigation/project-navigation.module';
+import { ShareModule } from '../components/share/share.module';
+import { ImageLightboxModule } from '../components/image-lightbox/image-lightbox.module';
 
 const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? new ProjectsService(http) : new ProjectsMockService()
 
@@ -17,11 +23,16 @@ const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? n
   ],
   imports: [
     CommonModule,
+    GalleryModule,
+    ProjectNavigationModule,
+    ImageLightboxModule,
+    ShareModule,
     RouterModule,
     HttpClientModule,
     ProjectRoutingModule
   ],
   providers: [
+    ProjectsStorageService,
     {
       provide: AbstractProjectService, 
       useFactory: abstractProjectFactory, 

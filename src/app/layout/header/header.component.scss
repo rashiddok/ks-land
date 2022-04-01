@@ -77,7 +77,8 @@
 }
 
 .header__overlay {
-    position: absolute;
+    position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -102,6 +103,12 @@
     .header {
         padding-top: 5vh;
         padding-bottom: 5vh;
+        &.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
     }
 }
 

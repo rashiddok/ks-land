@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { GalleryItem } from 'src/app/models/GalleryItem';
 import { ProjectsStorageService } from 'src/app/services/storage/projects-storage.service';
 
@@ -9,11 +9,20 @@ import { ProjectsStorageService } from 'src/app/services/storage/projects-storag
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
+  @Input() showAllGalleryItems:boolean = true
   public projects$!: Observable<GalleryItem[]>
   constructor(
     private storage: ProjectsStorageService
   ) {
     this.projects$ = this.storage.galleryItems.value$
+    .pipe(
+      switchMap(data=> {
+        if(this.showAllGalleryItems){
+          return of(data)
+        }
+        return of([data[0], data[1], data[2]])
+      }
+      ))
   }
 
   ngOnInit(): void {

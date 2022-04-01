@@ -4,9 +4,9 @@ export class Project{
     category: string;
     shortTitle: string;
     cover: string;
-    files: any[];
+    files: string[];
 
-    constructor(title: string, description: string, category: string, shortTitle: string, cover: string, files: any[]) {
+    constructor(title: string, description: string, category: string, shortTitle: string, cover: string, files: string[]) {
         this.title = title;
         this.description = description;
         this.category = category;

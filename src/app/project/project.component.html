@@ -11,12 +11,22 @@
         </div>
     </div>
     <div class="project__description pagewidth_max">
-        <h3 class="description__header" i18n="Project description|Description header @@project.header">
-            О проекте
-        </h3>
+        <div class="content-row content-row_center project-m-b">
+            <h3 class="description__header m-b-2" i18n="Project description|Description header @@project.header">
+                О проекте
+            </h3>
+            <app-share></app-share>
+        </div>
         <p class="description__text" [innerHTML]="project.description"></p>
     </div>
-    <div class="project__images">
-        <img class="project-image" *ngFor="let projectImage of project.files" [src]="projectImage" alt="">
+
+    <div class="project__items">
+        <img class="project-item" *ngFor="let projectImage of project.files; let i = index" [src]="projectImage" alt="" (click)="openImageLightbox(i)">
     </div>
+    <app-project-navigation [projectShortTitle]="project.shortTitle"></app-project-navigation>
+    <h3 class="description__header project-m-b" i18n="Project other|Other projects @@project.other">
+        Другие проекты
+    </h3>
+    <app-gallery [showAllGalleryItems]="false"></app-gallery>
 </div>
+<app-image-lightbox [images]="project.files" #imageLightbox></app-image-lightbox>

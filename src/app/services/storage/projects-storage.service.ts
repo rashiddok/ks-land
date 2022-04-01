@@ -12,6 +12,9 @@ export class ProjectsStorageService {
   ) { }
   
   requestPageData(){
+    if(this.galleryItems.value.length > 0){
+      return
+    }
     this.projectsApi.getProjects().subscribe(data=>{
       this.galleryItems.value = data
       console.log(data)

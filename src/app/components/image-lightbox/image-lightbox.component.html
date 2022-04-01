@@ -1,0 +1,19 @@
+<div id="imgModal" class="image-lightbox">
+    <span class="image-lightbox__close" (click)="closeModal()">
+        <fa-icon [icon]="faXmark" size="lg"></fa-icon>
+    </span>
+    <div class="image-lightbox__content">
+
+        <div class="lightbox-slide" *ngFor="let image of images; let i = index">
+            <img src="{{image}}" class="slide-image">
+        </div>
+
+        <a class="image-lightbox__navigation image-lightbox__navigation-prev" (click)="plusSlides(-1)">
+            <fa-icon [icon]="faChevronPrev" size="2x"></fa-icon>
+        </a>
+        <a class="image-lightbox__navigation image-lightbox__navigation-next" (click)="plusSlides(1)">
+            <fa-icon [icon]="faChevronNext" size="2x"></fa-icon>
+        </a>
+
+    </div>
+</div>
