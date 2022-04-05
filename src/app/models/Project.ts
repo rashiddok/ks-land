@@ -1,12 +1,14 @@
+import { GalleryImage } from "./GalleryImage";
+
 export class Project{
     title: string;
     description: string;
     category: string;
     shortTitle: string;
     cover: string;
-    files: string[];
+    files: GalleryImage[];
 
-    constructor(title: string, description: string, category: string, shortTitle: string, cover: string, files: string[]) {
+    constructor(title: string, description: string, category: string, shortTitle: string, cover: string, files: GalleryImage[]) {
         this.title = title;
         this.description = description;
         this.category = category;

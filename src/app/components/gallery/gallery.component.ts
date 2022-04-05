@@ -20,7 +20,7 @@ export class GalleryComponent implements OnInit {
         if(this.showAllGalleryItems){
           return of(data)
         }
-        return of([data[0], data[1], data[2]])
+        return of(data)
       }
       ))
   }

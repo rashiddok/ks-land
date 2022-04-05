@@ -8,13 +8,7 @@ export const projecta: Project = new Project('Glare',
 'glare',
  'https://i.ibb.co/Q88B9Zq/photo-2022-03-31-14-11-58.jpg',
  [
-     'https://i.ibb.co/7VVzsFH/photo-2022-03-31-14-11-44.jpg',
-     'https://i.ibb.co/bBzT4tY/photo-2022-03-31-14-11-46.jpg',
-     'https://i.ibb.co/yyJDnWw/photo-2022-03-31-14-11-49.jpg',
-     'https://i.ibb.co/nwgySvT/photo-2022-03-31-14-11-52.jpg',
-     'https://i.ibb.co/qrWL0Q3/photo-2022-03-31-14-11-54.jpg',
-     'https://i.ibb.co/PQdmZhL/photo-2022-03-31-14-11-56.jpg',
-     'https://i.ibb.co/vQdtDjS/photo-2022-03-31-14-12-01.jpg',
-     'https://i.ibb.co/BqRV85H/photo-2022-03-31-14-12-02.jpg'
+     {image: 'https://i.ibb.co/bBzT4tY/photo-2022-03-31-14-11-46.jpg',
+    cover: 'https://i.ibb.co/bBzT4tY/photo-2022-03-31-14-11-46.jpg'},
  ]
  )

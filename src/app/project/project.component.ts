@@ -12,6 +12,7 @@ import { AbstractProjectService } from '../services/api/projects.abstract-servic
 export class ProjectComponent implements OnInit, AfterViewInit {
   projectShortName!: string
   project!: Project
+  images: string[] = []
   @ViewChild('imageLightbox') imageLightbox!: ImageLightboxComponent;
   constructor(
     private route: ActivatedRoute,
@@ -23,39 +24,15 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       this.projectShortName = params['project']
       this.projectService.getProjectByName(this.projectShortName).subscribe(projectResponce=>{
         this.project = projectResponce
+        this.images = this.project.files.map(v=>v.image)
       })
     })
   }
 
-  ngAfterViewInit(): void {
-    // this.setImageGrid()
-  }
-  // setImageGrid(){
-  //   const gridElements = document.querySelectorAll('.project-item')
-  //   for (let index = 0; index < gridElements.length; index++) {
-  //     const element = gridElements[index];
-  //     const nextElement = gridElements[index+1]
-  //     const widthHeightRatio = element.clientWidth/element.clientHeight
-  //     let nextElementRatio: number = 1.5
-  //     if(nextElement){
-  //       nextElementRatio = nextElement.clientWidth/nextElement.clientHeight
-  //     }
-
-  //     if(widthHeightRatio <= 1.2 && nextElementRatio <= 1.2){
-  //       element.classList.add('project-item__left', 'item__aligned')
-  //       nextElement.classList.add('project-item__right', 'item__aligned');
-  //       index++;
-  //       // return
-  //     }
-  //     else if(widthHeightRatio <= 1.2){
-  //       element.classList.add('project-item__center', 'item__aligned')
-  //     } else{
-  //       element.classList.add('project-item__full', 'item__aligned')
-  //     }
-  //   }
-  // }
+  ngAfterViewInit(): void {}
 
   openImageLightbox(imageIndex: number){
+    
     this.imageLightbox.openModal(imageIndex)
   }
 
