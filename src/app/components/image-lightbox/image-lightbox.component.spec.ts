@@ -22,4 +22,9 @@ describe('ImageLightboxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open', ()=>{
+    const lightboxEl = fixture.debugElement.nativeElement.querySelector('.image-lightbox')
+    expect(lightboxEl).toBeTruthy()
+  })
 });

@@ -1,8 +1,8 @@
-<a class="project" [routerLink]="['','projects',item.shortTitle]">
-    <img class="project__cover" [src]="item.cover" alt="" srcset="">
+<a class="project" [routerLink]="['','projects',item?.shortTitle]">
+    <img class="project__cover" [src]="item?.cover" alt="" srcset="">
     <div class="project__overlay">
         <span class="project-name overlay_name color-default">
-            {{item.title}}
+            {{item?.title}}
         </span>
     </div>
 </a>
