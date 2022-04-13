@@ -22,7 +22,7 @@
         </div>
 
         <div class="project__items">
-            <img class="project-item" *ngFor="let projectImage of images" [src]="projectImage.cover" alt="" (click)="openImageLightbox(projectImage.id)">
+            <img class="project-item" lazyLoad *ngFor="let projectImage of images" [src]="projectImage.cover" alt="" (click)="openImageLightbox(projectImage.id)">
         </div>
         <app-project-navigation [projectShortTitle]="project.shortTitle"></app-project-navigation>
         <h3 class="description__header project-m-b" i18n="Project other|Other projects @@project.other">

@@ -14,12 +14,14 @@ import { ProjectsStorageService } from '../services/storage/projects-storage.ser
 import { ProjectNavigationModule } from './project-navigation/project-navigation.module';
 import { ShareModule } from '../components/share/share.module';
 import { ImageLightboxModule } from '../components/image-lightbox/image-lightbox.module';
+import { LazyImageLoadingDirective } from '../helpers/lazy-image.directive';
 
 const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? new ProjectsService(http) : new ProjectsMockService()
 
 @NgModule({
   declarations: [
-    ProjectComponent
+    ProjectComponent,
+    LazyImageLoadingDirective
   ],
   imports: [
     CommonModule,
