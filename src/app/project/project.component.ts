@@ -1,8 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageLightboxComponent } from '../components/image-lightbox/image-lightbox.component';
+import { GalleryImage } from '../models/GalleryImage';
+import { GalleryItem } from '../models/GalleryItem';
 import { Project } from '../models/Project';
 import { AbstractProjectService } from '../services/api/projects.abstract-service';
+
+
 
 @Component({
   selector: 'app-project',
@@ -12,7 +16,7 @@ import { AbstractProjectService } from '../services/api/projects.abstract-servic
 export class ProjectComponent implements OnInit, AfterViewInit {
   projectShortName!: string
   project!: Project
-  images: string[] = []
+  images: Required<GalleryImage>[] = []
   @ViewChild('imageLightbox') imageLightbox!: ImageLightboxComponent;
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +28,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       this.projectShortName = params['project']
       this.projectService.getProjectByName(this.projectShortName).subscribe(projectResponce=>{
         this.project = projectResponce
-        this.images = this.project.files.map(v=>v.image)
+        this.images = this.project.files.map((v, i)=>new GalleryImage(v.image, v.cover, i) as Required<GalleryImage>)
       })
     })
   }

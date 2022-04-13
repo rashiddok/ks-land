@@ -1,13 +1,16 @@
-<div id="imgModal" class="image-lightbox">
+<div id="imgModal" class="image-lightbox" *ngIf="showModal">
     <span class="image-lightbox__close" (click)="closeModal()">
         <fa-icon [icon]="faXmark" size="lg"></fa-icon>
     </span>
     <div class="image-lightbox__content">
 
-        <div class="lightbox-slide" *ngFor="let image of images; let i = index">
-            <img src="{{image}}" class="slide-image">
-        </div>
+        <ng-container *ngFor="let image of images">
 
+
+            <div class="lightbox-slide" *ngIf="slideIndex === image.id">
+                <img src="{{image.image}}" class="slide-image">
+            </div>
+        </ng-container>
         <a class="image-lightbox__navigation image-lightbox__navigation-prev" (click)="plusSlides(-1)">
             <fa-icon [icon]="faChevronPrev" size="2x"></fa-icon>
         </a>

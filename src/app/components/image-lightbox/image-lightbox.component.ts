@@ -1,55 +1,49 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faChevronCircleLeft, faChevronCircleRight, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { GalleryImage } from 'src/app/models/GalleryImage';
 
 @Component({
   selector: 'app-image-lightbox',
   templateUrl: './image-lightbox.component.html',
   styleUrls: ['./image-lightbox.component.scss']
 })
-export class ImageLightboxComponent implements OnInit {
+export class ImageLightboxComponent  {
 
-  @Input() images!: string[]
+  @Input() images!: GalleryImage[]
   faChevronNext = faChevronCircleRight
   faChevronPrev = faChevronCircleLeft
   faXmark = faXmark
-  slideIndex = 0;
+  private _slideIndex: number = 0;
+  get slideIndex(): number{
+    return this._slideIndex;
+  }
+  set slideIndex(n: number){
+    const foundImage = this.images.find(v=>v.id === n)
+    if(!foundImage){
+      return
+    }
+    this._slideIndex = n
+  }
+  showModal: boolean = false
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  loadImages(): void {
-  }
   
-  openModal(imageIndex: number) {
-    const el: HTMLElement = document.querySelector('#imgModal') as HTMLElement
-    el.style.display = "block";
-    this.currentSlide(imageIndex)
+  openModal(imageId: number) {
+    this.showModal = true
+    this.currentSlide(imageId)
   }
 
   closeModal() {
-    const el: HTMLElement =document.getElementById('imgModal') as HTMLElement
-    el.style.display = "none";
+    this.showModal = false
   }
 
 
    plusSlides(n: number) {
-    this.showSlides(this.slideIndex += n);
+    this.slideIndex += n
   }
 
-   private currentSlide(n: number) {
-    this.showSlides(this.slideIndex = n);
-  }
-
-   showSlides(n: number) {
-    const slides = document.getElementsByClassName("lightbox-slide") as HTMLCollectionOf<HTMLElement>;
-    if (n > slides.length) {this.slideIndex = 1}
-    if (n < 1) {this.slideIndex = slides.length}
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[this.slideIndex-1].style.display = "block";
+   private currentSlide(index: number) {
+    this.slideIndex = index
   }
 
 }
