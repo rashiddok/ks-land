@@ -20,6 +20,33 @@
         </context-group>
         <note priority="1" from="description">Share dialog copy</note>
       </trans-unit>
+      <trans-unit id="contact.header" datatype="html">
+        <source>Свяжитесь со мной</source>
+        <target>Contact</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/contact/contact.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Contact header</note>
+      </trans-unit>
+      <trans-unit id="contact.description" datatype="html">
+        <source> Как фрилансер, я всегда открыта для новых проектов и сотрудничества </source>
+        <target>As a freelancer, i'm available for new projects and collaborations.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/contact/contact.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+        <note priority="1" from="description">Contact description</note>
+      </trans-unit>
+      <trans-unit id="contact.message" datatype="html">
+        <source>Сообщение</source>
+        <target>Message</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/contact/contact.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Contact message</note>
+      </trans-unit>
       <trans-unit id="header.home" datatype="html">
         <source>Главная</source>
         <target>Home</target>
@@ -61,6 +88,26 @@
         </context-group>
         <note priority="1" from="description">Contact link</note>
         <note priority="1" from="meaning">Header link</note>
+      </trans-unit>
+            <trans-unit id="project.header" datatype="html">
+        <source> О проекте </source>
+        <target>About</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project/project.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+        <note priority="1" from="description">Description header </note>
+        <note priority="1" from="meaning">Project description</note>
+      </trans-unit>
+      <trans-unit id="project.other" datatype="html">
+        <source> Другие проекты </source>
+        <target>Other projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/project/project.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+        <note priority="1" from="description">Other projects </note>
+        <note priority="1" from="meaning">Project other</note>
       </trans-unit>
     </body>
   </file>

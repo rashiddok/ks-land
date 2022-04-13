@@ -44,9 +44,9 @@
         <div class="overlay__content">
             <nav>
                 <ul class="header__nav">
-                    <li class="nav__link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/" i18n="Header link|Home link@@header.home">Главная</a></li>
-                    <li class="nav__link" routerLinkActive="active"><a routerLink="/about" i18n="Header link|About link@@header.about">Обо мне</a></li>
-                    <li class="nav__link" routerLinkActive="active"><a routerLink="/contact" i18n="Header link|Contact link@@header.contact">Связь</a></li>
+                    <li class="nav__link" (click)="toggleMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/" i18n="Header link|Home link@@header.home">Главная</a></li>
+                    <li class="nav__link" (click)="toggleMenu()" routerLinkActive="active"><a routerLink="/about" i18n="Header link|About link@@header.about">Обо мне</a></li>
+                    <li class="nav__link" (click)="toggleMenu()" routerLinkActive="active"><a routerLink="/contact" i18n="Header link|Contact link@@header.contact">Связь</a></li>
                 </ul>
             </nav>
         </div>
