@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeSwitcherComponent } from './theme-switcher.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ThemeService } from 'src/app/services/theme.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -14,7 +15,11 @@ import { ThemeService } from 'src/app/services/theme.service';
     CommonModule,
     FontAwesomeModule
   ],
-  providers: [ThemeService],
+  providers: [{
+    provide: ThemeService,
+    useClass: ThemeService,
+    deps: [CookieService]
+  }],
   exports: [ThemeSwitcherComponent]
 })
 export class ThemeSwitcherModule { }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
+import { CookieService } from 'ngx-cookie-service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -23,7 +24,6 @@ export class ThemeSwitcherComponent implements OnInit {
     if(this.themeService.isDarkTheme()){
       this.themeService.setLightTheme()
       this.activeTheme = 'light'
-      
       this.faTheme = faMoon
       return
     }

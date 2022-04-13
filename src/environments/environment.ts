@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   APP_USE_API: true,
-  API_URL: 'http://localhost:3000'
+  API_URL: 'http://ksdesign.back.vh118.hosterby.com'
 };
 
 /*

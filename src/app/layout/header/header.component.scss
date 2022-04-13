@@ -46,6 +46,12 @@
                 text-decoration: none;
             }
         }
+        a.logo-brand {
+            img {
+                height: 150px;
+                object-fit: contain;
+            }
+        }
     }
     a.nav__link-standalone {
         font-size: 20px;
