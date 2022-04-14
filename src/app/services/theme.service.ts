@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
+import { BehaviorSubject, Observable } from "rxjs";
 import { dark, light, Theme } from "../helpers/theme";
 
 @Injectable()
 
 export class ThemeService {
-  private active: Theme = light;
+  private active: BehaviorSubject<Theme> = new BehaviorSubject(light);
   private availableThemes: Theme[] = [light, dark];
 
   constructor(
@@ -18,11 +19,15 @@ export class ThemeService {
   }
 
   getActiveTheme(): Theme {
-    return this.active;
+    return this.active.value;
+  }
+
+  getActiveTheme$(): Observable<Theme> {
+    return this.active.asObservable();
   }
 
   isDarkTheme(): boolean {
-    return this.active.name === dark.name;
+    return this.active.value.name === dark.name;
   }
 
   setDarkTheme(): void {
@@ -46,12 +51,12 @@ export class ThemeService {
   }
 
   setActiveTheme(theme: Theme): void {
-    this.active = theme;
+    this.active.next(theme);
     this.cookie.set('app_theme', theme.name)
-    Object.keys(this.active.properties).forEach(property => {
+    Object.keys(this.active.value.properties).forEach(property => {
       document.documentElement.style.setProperty(
         property,
-        this.active.properties[property]
+        this.active.value.properties[property]
       );
     });
   }

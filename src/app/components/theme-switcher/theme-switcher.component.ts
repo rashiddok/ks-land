@@ -12,10 +12,17 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class ThemeSwitcherComponent implements OnInit {
   @Input() iconSize: SizeProp = 'lg'
   faTheme = faMoon
-  activeTheme = 'light'
   constructor(
     private themeService: ThemeService
-  ) { }
+  ) {
+    this.themeService.getActiveTheme$().subscribe(theme=>{
+      if(this.themeService.isDarkTheme()){
+        this.faTheme = faMoon
+        return
+      }
+      this.faTheme = faSun
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -23,13 +30,9 @@ export class ThemeSwitcherComponent implements OnInit {
   switchTheme(){
     if(this.themeService.isDarkTheme()){
       this.themeService.setLightTheme()
-      this.activeTheme = 'light'
-      this.faTheme = faMoon
       return
     }
     this.themeService.setDarkTheme()
-    this.activeTheme = 'dark'
-    this.faTheme = faSun
   }
 
 }
