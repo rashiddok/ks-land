@@ -9,13 +9,13 @@
         <form class="contact__form" [formGroup]="contactForm">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" formControlValue="email">
+                <input type="email" (keypress)="emailKeypress($event)" name="email" id="email" formControlName="email">
             </div>
             <div class="form-group">
                 <label for="message" i18n="Contact message@@contact.message">Сообщение</label>
-                <textarea name="message" id="message" cols="30" rows="6" formControlValue="message"></textarea>
+                <textarea name="message" id="message" cols="30" rows="6" formControlName="message"></textarea>
             </div>
-            <input class="btn-sumbit" type="submit" value="Отправить" i18n="Contact send@@contact.send">
+            <input class="btn-sumbit" [disabled]="contactForm.invalid" (click)="sendEmail()" type="submit" value="Отправить" i18n="Contact send@@contact.send">
         </form>
     </div>
     <div class="contact__socials">
