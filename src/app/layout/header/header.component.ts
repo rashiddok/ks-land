@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       document.querySelector('.header__toggler')?.classList.remove('fadein')
     }, 200);
-    
+
   }
 
 }

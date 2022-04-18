@@ -7,8 +7,7 @@
         </ul>
     </nav>
     <div class="header__logo">
-        <a class="logo-brand" href="#">
-            <img src="../../../assets/images/logo_white.png" alt="">
+        <a class="logo-brand" routerLink="/">
         </a>
     </div>
     <div class="header__additional">
@@ -21,9 +20,8 @@
 <ng-template #mobileHeader>
     <div class="header mobile container" [ngClass]="{'fixed': isMenuToggled}">
         <div class="header__logo">
-            <div class="logo-text">
-                <a href="#">Aks Design</a>
-            </div>
+            <a class="logo-brand" routerLink="/">
+            </a>
         </div>
         <div class="header__right">
             <a href="#" class="nav__link nav__link-standalone">eng</a>

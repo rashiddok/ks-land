@@ -26,6 +26,22 @@ body {
     background: var(--background-default);
 }
 
+body.theme_dark {
+    .logo-brand {
+        background-image: url('./assets/images/logo_white.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+body.theme_light {
+    .logo-brand {
+        background-image: url('./assets/images/logo_black.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
 * {
     // transition: color .2s;
     // transition: background .2s;

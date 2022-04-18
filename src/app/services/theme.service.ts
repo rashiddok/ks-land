@@ -52,6 +52,7 @@ export class ThemeService {
 
   setActiveTheme(theme: Theme): void {
     this.active.next(theme);
+    document.body.classList.value = 'theme_'+theme.name
     this.cookie.set('app_theme', theme.name)
     Object.keys(this.active.value.properties).forEach(property => {
       document.documentElement.style.setProperty(

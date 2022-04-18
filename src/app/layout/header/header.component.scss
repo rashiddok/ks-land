@@ -37,6 +37,7 @@
     }
     &__logo {
         font-size: 24px;
+        width: 200px;
         .logo-text {
             color: var(--foreground-light);
             font-weight: 400;
@@ -47,10 +48,9 @@
             }
         }
         a.logo-brand {
-            img {
-                height: 150px;
-                object-fit: contain;
-            }
+            height: 50px;
+            background-position: center;
+            display: flex;
         }
     }
     a.nav__link-standalone {
