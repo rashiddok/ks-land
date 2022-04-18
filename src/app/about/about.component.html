@@ -1,1 +1,6 @@
-<p>about works!</p>
+<ng-container *ngIf="aboutData">
+    <div class="about container">
+        <img [src]="aboutData.photo" alt="" class="about__photo">
+        <div class="about__text" [innerHTML]="aboutData.text"></div>
+    </div>
+</ng-container>
