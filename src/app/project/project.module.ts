@@ -15,6 +15,7 @@ import { ProjectNavigationModule } from './project-navigation/project-navigation
 import { ShareModule } from '../components/share/share.module';
 import { ImageLightboxModule } from '../components/image-lightbox/image-lightbox.module';
 import { LazyImageLoadingDirective } from '../helpers/lazy-image.directive';
+import {ModalModule} from "../components/ui/modal";
 
 const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? new ProjectsService(http) : new ProjectsMockService()
 
@@ -28,6 +29,7 @@ const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? n
     GalleryModule,
     ProjectNavigationModule,
     ImageLightboxModule,
+    ModalModule,
     ShareModule,
     RouterModule,
     HttpClientModule,
@@ -36,8 +38,8 @@ const abstractProjectFactory = (http: HttpClient) => environment.APP_USE_API ? n
   providers: [
     ProjectsStorageService,
     {
-      provide: AbstractProjectService, 
-      useFactory: abstractProjectFactory, 
+      provide: AbstractProjectService,
+      useFactory: abstractProjectFactory,
       deps: [HttpClient]
     }
   ]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { faFacebook, faLinkedin, faTelegram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ShareItem } from './ShareItem';
@@ -12,7 +12,7 @@ export class ShareDialogComponent{
   shareItems: ShareItem[] = []
   pageUrl!: string;
   faXmark = faXmark
-  public isOpen: boolean = false
+  @Output() modalClose: EventEmitter<void> = new EventEmitter<void>()
   constructor() {
     const url = document.location.href
     this.pageUrl = url;
@@ -22,14 +22,6 @@ export class ShareDialogComponent{
       new ShareItem('Telegram', `https://t.me/share/url?url=${url}`, faTelegram, 'telegram-icon'),
       new ShareItem('Email', this.getMailLink(url), faEnvelope, 'ff')
     ]
-  }
-  
-  showDialog(){
-    this.isOpen = true
-  }
-
-  closeDialog(){
-    this.isOpen = false
   }
 
   shareItemClick(shareItem: ShareItem){

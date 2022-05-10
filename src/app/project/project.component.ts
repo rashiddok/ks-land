@@ -5,6 +5,7 @@ import { GalleryImage } from '../models/GalleryImage';
 import { GalleryItem } from '../models/GalleryItem';
 import { Project } from '../models/Project';
 import { AbstractProjectService } from '../services/api/projects.abstract-service';
+import {ModalService} from "../components/ui/modal";
 
 
 
@@ -17,10 +18,12 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   projectShortName!: string
   project!: Project
   images: Required<GalleryImage>[] = []
-  @ViewChild('imageLightbox') imageLightbox!: ImageLightboxComponent;
+  currentImageIndex: number = 0
+
   constructor(
     private route: ActivatedRoute,
-    private projectService: AbstractProjectService
+    private projectService: AbstractProjectService,
+    public modalService: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -36,8 +39,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {}
 
   openImageLightbox(imageIndex: number){
-    
-    this.imageLightbox.openModal(imageIndex)
+    this.currentImageIndex = imageIndex
+    this.modalService.open('lightbox-modal')
   }
 
 }

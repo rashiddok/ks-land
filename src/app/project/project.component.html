@@ -30,6 +30,11 @@
         </h3>
         <app-gallery [showAllGalleryItems]="false"></app-gallery>
     </div>
-    <app-image-lightbox [images]="images" #imageLightbox></app-image-lightbox>
+  <app-modal id="lightbox-modal">
+    <app-image-lightbox
+      [images]="images"
+      [slideIndex]="currentImageIndex"
+      (closeModal)="modalService.close('lightbox-modal')"></app-image-lightbox>
+  </app-modal>
 
 </ng-container>

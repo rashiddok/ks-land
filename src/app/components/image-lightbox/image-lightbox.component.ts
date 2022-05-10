@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {faChevronCircleLeft, faChevronCircleRight, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {GalleryImage} from 'src/app/models/GalleryImage';
 
@@ -6,10 +6,12 @@ import {GalleryImage} from 'src/app/models/GalleryImage';
   selector: 'app-image-lightbox',
   templateUrl: './image-lightbox.component.html',
   styleUrls: ['./image-lightbox.component.scss'],
+  // encapsulation: ViewEncapsulation.Emulated
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageLightboxComponent  {
 
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>()
   @Input() images!: GalleryImage[]
   faChevronNext = faChevronCircleRight
   faChevronPrev = faChevronCircleLeft
@@ -18,26 +20,19 @@ export class ImageLightboxComponent  {
   get slideIndex(): number{
     return this._slideIndex;
   }
-  set slideIndex(n: number){
+  @Input() set slideIndex(n: number){
     const foundImage = this.images.find(v=>v.id === n)
     if(!foundImage){
       return
     }
     this._slideIndex = n
   }
-  showModal: boolean = false
 
   constructor() { }
 
   openModal(imageId: number) {
-    this.showModal = true
     this.currentSlide(imageId)
   }
-
-  closeModal() {
-    this.showModal = false
-  }
-
 
    plusSlides(n: number) {
     this.slideIndex += n

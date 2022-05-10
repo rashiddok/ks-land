@@ -1,10 +1,7 @@
-<div class="share-dialog__wrapper" *ngIf="isOpen">
-
-
-    <div class="share-dialog">
+ <div class="share-dialog">
         <header>
             <h3 class="dialog-title color-default" i18n="Share dialog header@@share-dialog.header">Поделиться в соц. сетях</h3>
-            <button class="close-button" (click)="closeDialog()">
+            <button class="close-button" (click)="modalClose.emit()">
             <fa-icon [icon]="faXmark" size="lg" [class]="'color-default'"></fa-icon>
         </button>
         </header>
@@ -19,4 +16,3 @@
             <button class="copy-link" i18n="Share dialog copy@@share-dialog.copy">Скопировать</button>
         </div>
     </div>
-</div>

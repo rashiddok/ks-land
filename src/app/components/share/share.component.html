@@ -1,4 +1,6 @@
 <button class="share-button" (click)="shareClick()">
     <fa-icon [icon]="faShare" size="lg"></fa-icon>
 </button>
-<app-share-dialog #shareDialog></app-share-dialog>
+<app-modal id="share-modal">
+  <app-share-dialog (modalClose)="modalService.close('share-modal')"></app-share-dialog>
+</app-modal>
