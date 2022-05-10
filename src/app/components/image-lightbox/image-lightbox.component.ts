@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { faChevronCircleLeft, faChevronCircleRight, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { GalleryImage } from 'src/app/models/GalleryImage';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {faChevronCircleLeft, faChevronCircleRight, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {GalleryImage} from 'src/app/models/GalleryImage';
 
 @Component({
   selector: 'app-image-lightbox',
   templateUrl: './image-lightbox.component.html',
-  styleUrls: ['./image-lightbox.component.scss']
+  styleUrls: ['./image-lightbox.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageLightboxComponent  {
 
@@ -27,7 +28,7 @@ export class ImageLightboxComponent  {
   showModal: boolean = false
 
   constructor() { }
-  
+
   openModal(imageId: number) {
     this.showModal = true
     this.currentSlide(imageId)

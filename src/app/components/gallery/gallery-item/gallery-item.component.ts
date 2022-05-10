@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { GalleryItem } from 'src/app/models/GalleryItem';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {GalleryItem} from 'src/app/models/GalleryItem';
 
 @Component({
   selector: 'app-gallery-item',
   templateUrl: './gallery-item.component.html',
-  styleUrls: ['./gallery-item.component.scss']
+  styleUrls: ['./gallery-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryItemComponent implements OnInit {
   @Input() item!: GalleryItem

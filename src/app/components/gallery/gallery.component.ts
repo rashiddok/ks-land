@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { map, Observable, of, switchMap } from 'rxjs';
-import { GalleryItem } from 'src/app/models/GalleryItem';
-import { ProjectsStorageService } from 'src/app/services/storage/projects-storage.service';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {Observable, of, switchMap} from 'rxjs';
+import {GalleryItem} from 'src/app/models/GalleryItem';
+import {ProjectsStorageService} from 'src/app/services/storage/projects-storage.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  styleUrls: ['./gallery.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GalleryComponent implements OnInit {
   @Input() showAllGalleryItems:boolean = true
