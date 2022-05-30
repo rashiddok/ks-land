@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {faChevronCircleLeft, faChevronCircleRight, faXmark} from '@fortawesome/free-solid-svg-icons';
-import {GalleryImage} from 'src/app/models/GalleryImage';
+import {GalleryImage} from "../../shared/models/GalleryImage";
 
 @Component({
   selector: 'app-image-lightbox',

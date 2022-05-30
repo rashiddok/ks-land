@@ -1,11 +1,12 @@
-import { Component, OnInit} from '@angular/core';
-import { faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {faShareNodes} from '@fortawesome/free-solid-svg-icons';
 import {ModalService} from "../ui/modal";
 
 @Component({
   selector: 'app-share',
   templateUrl: './share.component.html',
-  styleUrls: ['./share.component.scss']
+  styleUrls: ['./share.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShareComponent implements OnInit {
   faShare = faShareNodes

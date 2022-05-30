@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable, of, switchMap} from 'rxjs';
-import {GalleryItem} from 'src/app/models/GalleryItem';
-import {ProjectsStorageService} from 'src/app/services/storage/projects-storage.service';
+import {ProjectsStorageService} from "../../shared/services/storage/projects-storage.service";
+import {GalleryItem} from "../../shared/models/GalleryItem";
 
 @Component({
   selector: 'app-gallery',

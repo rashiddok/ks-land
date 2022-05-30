@@ -1,12 +1,13 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import { faFacebook, faLinkedin, faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { ShareItem } from './ShareItem';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
+import {faFacebook, faLinkedin, faTelegram} from '@fortawesome/free-brands-svg-icons';
+import {faEnvelope, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {ShareItem} from './ShareItem';
 
 @Component({
   selector: 'app-share-dialog',
   templateUrl: './share-dialog.component.html',
-  styleUrls: ['./share-dialog.component.scss']
+  styleUrls: ['./share-dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShareDialogComponent{
   shareItems: ShareItem[] = []

@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {GalleryItem} from 'src/app/models/GalleryItem';
+import {GalleryItem} from "../../../shared/models/GalleryItem";
 
 @Component({
   selector: 'app-gallery-item',
