@@ -6,8 +6,7 @@ import {GalleryImage} from "../../shared/models/GalleryImage";
   selector: 'app-image-lightbox',
   templateUrl: './image-lightbox.component.html',
   styleUrls: ['./image-lightbox.component.scss'],
-  // encapsulation: ViewEncapsulation.Emulated
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageLightboxComponent  {
 

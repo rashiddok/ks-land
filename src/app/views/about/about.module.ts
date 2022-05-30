@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
-import { AboutRoutingModule } from './about-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule, Routes} from "@angular/router";
 
-
+const routes: Routes = [{ path: '', component: AboutComponent }];
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
-    AboutRoutingModule
+    RouterModule.forChild(routes)
   ],
 })
 export class AboutModule { }
