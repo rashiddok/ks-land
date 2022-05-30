@@ -5,7 +5,9 @@ import {
   faChevronRight,
   faGrip,
 } from '@fortawesome/free-solid-svg-icons';
-import { ProjectsStorageService } from '../../../shared/services/storage/projects-storage.service';
+import { ProjectsStore } from '../../../shared/projects.store';
+import {findIndex, map, mergeMap, tap} from "rxjs";
+import {GalleryItem} from "../../../shared/models/GalleryItem";
 
 @Component({
   selector: 'app-project-navigation',
@@ -29,7 +31,7 @@ export class ProjectNavigationComponent {
   faChevronRight = faChevronRight;
   faGrip = faGrip;
   constructor(
-    private projectsStorage: ProjectsStorageService,
+    private projectsStorage: ProjectsStore,
     private router: Router
   ) {}
 
@@ -42,19 +44,24 @@ export class ProjectNavigationComponent {
   }
 
   private navigate(navigateTo: 1 | -1) {
-    const projects = this.projectsStorage.galleryItems.value;
-    const foundProjectIndex = projects.findIndex(
-      (v) => v.shortTitle === this.projectShortTitle
-    );
-    let navigateItemTitle =
-      projects[foundProjectIndex + navigateTo]?.shortTitle;
-    if (!navigateItemTitle) {
-      navigateItemTitle =
-        navigateTo === 1
-          ? projects[0].shortTitle
-          : projects[projects.length - 1].shortTitle;
-    }
-    window.scroll(0, 0);
-    this.router.navigate(['projects', navigateItemTitle]);
+    //TODO: REWORK
+    this.projectsStorage.galleryItems.pipe(
+      map((data)=>{
+        const itemIndex = data.findIndex(v=>v.shortTitle === this.projectShortTitle)
+        return {data, itemIndex}
+      }),
+      tap(({data, itemIndex})=>{
+        let navigateItemTitle =
+          data[itemIndex+navigateTo]?.shortTitle;
+        if (!navigateItemTitle) {
+          navigateItemTitle =
+            navigateTo === 1
+              ? data[0].shortTitle
+              : data[data.length - 1].shortTitle;
+        }
+        window.scroll(0, 0);
+        this.router.navigate(['projects', navigateItemTitle]);
+      })
+    )
   }
 }

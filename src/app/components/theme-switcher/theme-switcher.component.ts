@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {SizeProp} from '@fortawesome/fontawesome-svg-core';
 import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
-import {ThemeService} from "../../shared/services/theme.service";
+import {ThemeService} from "../../shared/theme.service";
 
 @Component({
   selector: 'app-theme-switcher',

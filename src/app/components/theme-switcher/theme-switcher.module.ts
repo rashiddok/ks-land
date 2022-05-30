@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeSwitcherComponent } from './theme-switcher.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CookieService } from 'ngx-cookie-service';
-import {ThemeService} from "../../shared/services/theme.service";
+import {ThemeService} from "../../shared/theme.service";
 
 
 

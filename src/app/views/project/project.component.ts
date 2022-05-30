@@ -6,9 +6,11 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../../shared/models/Project';
-import { ProjectsService } from '../../shared/services/api/projects.service';
+import { ProjectsService } from '../../shared/projects.service';
 import { ModalService } from '../../components/ui/modal';
 import { GalleryImage } from '../../shared/models/GalleryImage';
+import { ProjectsStore } from '../../shared/projects.store';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-project',
@@ -23,23 +25,26 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private projectService: ProjectsService,
-    public modalService: ModalService
+    public modalService: ModalService,
+    public projectStore: ProjectsStore
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.projectShortName = params['project'];
-      this.projectService
-        .getProjectByName(this.projectShortName)
-        .subscribe((projectResponce) => {
-          this.project = projectResponce;
-          this.images = this.project.files.map(
-            (v, i) =>
-              new GalleryImage(v.image, v.cover, i) as Required<GalleryImage>
-          );
-        });
-    });
+    this.route.params
+      .pipe(
+        map((params) => {
+          this.projectShortName = params['project'];
+          return params['project'];
+        }),
+        switchMap((projectName) => this.projectStore.getProject(projectName))
+      )
+      .subscribe((projectResponce) => {
+        this.project = projectResponce;
+        this.images = this.project.files.map(
+          (v, i) =>
+            new GalleryImage(v.image, v.cover, i) as Required<GalleryImage>
+        );
+      });
   }
 
   openImageLightbox(imageIndex: number) {

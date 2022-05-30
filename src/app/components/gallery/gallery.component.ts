@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable, of, switchMap} from 'rxjs';
-import {ProjectsStorageService} from "../../shared/services/storage/projects-storage.service";
+import {ProjectsStore} from "../../shared/projects.store";
 import {GalleryItem} from "../../shared/models/GalleryItem";
 
 @Component({
@@ -9,13 +9,13 @@ import {GalleryItem} from "../../shared/models/GalleryItem";
   styleUrls: ['./gallery.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
   @Input() showAllGalleryItems:boolean = true
   public projects$!: Observable<GalleryItem[]>
   constructor(
-    private storage: ProjectsStorageService
+    private storage: ProjectsStore,
   ) {
-    this.projects$ = this.storage.galleryItems.value$
+    this.projects$ = this.storage.galleryItems
     .pipe(
       switchMap(data=> {
         if(this.showAllGalleryItems){
@@ -24,10 +24,6 @@ export class GalleryComponent implements OnInit {
         return of([data[0],data[1], data[2]])
       }
       ))
-  }
-
-  ngOnInit(): void {
-    this.storage.requestPageData()
   }
 
 }
