@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Self } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { EmailMessage } from '../../shared/models/EmailMessage';
 import { SendmailService } from './sendmail.service';
 
@@ -13,11 +13,11 @@ import { SendmailService } from './sendmail.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
-  contactForm!: FormGroup;
+  contactForm!: UntypedFormGroup;
   constructor(@Self() private mailService: SendmailService) {
-    this.contactForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9@._-]*')]),
-      message: new FormControl('', [Validators.required, Validators.pattern('[A-Za-zА-Яа-я0-9.!?-_]*')]),
+    this.contactForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9@._-]*')]),
+      message: new UntypedFormControl('', [Validators.required, Validators.pattern('[A-Za-zА-Яа-я0-9.!?-_]*')]),
     });
   }
 
