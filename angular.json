@@ -83,13 +83,13 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "ks-land:build:production"
+                          "buildTarget": "ks-land:build:production"
                         },
                         "development": {
-                            "browserTarget": "ks-land:build:development"
+                          "buildTarget": "ks-land:build:development"
                         },
                         "en": {
-                            "browserTarget": "ks-land:build:en"
+                          "buildTarget": "ks-land:build:en"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -97,7 +97,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "ks-land:build"
+                      "buildTarget": "ks-land:build"
                     }
                 },
                 "test": {
